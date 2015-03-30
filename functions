@@ -1,0 +1,104 @@
+# REDSHIFT
+function redshift_log {
+envfile=$1
+source $envfile
+echo $POSTGRES_PASS
+PGPASSWORD=$POSTGRES_PASS psql -h $POSTGRES_HOST -U $POSTGRES_USER -p $POSTGRES_PORT $POSTGRES_DATABASE -c "select table_name, query, line_number, colname, starttime, reason as error from loadview order by line_number limit 10;"
+}
+
+# PSQL
+function postgres_wrapper
+{
+url=$1
+shift
+
+credentials=$(echo $url | cut -d '@' -f 1 | cut -d '/' -f 3)
+user=$(echo $credentials | cut -d ':' -f 1)
+password=$(echo $credentials | cut -d ':' -f 2-)
+address=$(echo $url | cut -d '@' -f 2)
+host_port=$(echo $address | cut -d '/' -f -1)
+host=$(echo $host_port | cut -d ':' -f -1)
+port=$(echo $host_port | cut -d ':' -f 2-)
+db=$(echo $address | cut -d '/' -f 2-)
+
+PGPASSWORD=$password psql -h $host -U $user -p $port $db
+}
+
+# MONGO
+function mongo_wrapper
+{
+proto="$(echo $1 | grep :// | sed -e's,^\(.*://\).*,\1,g')"
+url="$(echo ${1/$proto/})"
+credentials="$(echo $url | grep @ | cut -d@ -f1)"
+user="$(echo $credentials | cut -d: -f1)"
+password="$(echo $credentials | cut -d: -f2)"
+host="$(echo ${url/$credentials@/} | cut -d/ -f1)"
+db="$(echo $url | grep / | cut -d/ -f2-)"
+
+shift
+mongo $host/$db -u $user -p $password $@
+}
+
+function mongoexport_wrapper {
+url=$1
+shift
+
+credentials=$(echo $url | cut -d '@' -f 1 | cut -d '/' -f 3)
+user=$(echo $credentials | cut -d ':' -f 1)
+password=$(echo $credentials | cut -d ':' -f 2-)
+address=$(echo $url | cut -d '@' -f 2)
+host=$(echo $address | cut -d '/' -f -1)
+db=$(echo $address | cut -d '/' -f 2-)
+echo "[$0] exporting from [$address] with user [$user]"
+mongoexport -u $user -p $password \
+--host $host \
+--db $db \
+$@
+}
+
+function mongodump_wrapper {
+url=$1
+shift
+
+credentials=$(echo $url | cut -d '@' -f 1 | cut -d '/' -f 3)
+user=$(echo $credentials | cut -d ':' -f 1)
+password=$(echo $credentials | cut -d ':' -f 2-)
+address=$(echo $url | cut -d '@' -f 2)
+host=$(echo $address | cut -d '/' -f -1)
+db=$(echo $address | cut -d '/' -f 2-)
+echo "[$0] exporting from [$address] with user [$user]"
+mongodump -u $user -p $password \
+--host $host \
+--db $db \
+$@
+}
+
+function mongorestore_wrapper {
+url=$1
+shift
+
+credentials=$(echo $url | cut -d '@' -f 1 | cut -d '/' -f 3)
+user=$(echo $credentials | cut -d ':' -f 1)
+password=$(echo $credentials | cut -d ':' -f 2-)
+address=$(echo $url | cut -d '@' -f 2)
+host=$(echo $address | cut -d '/' -f -1)
+db=$(echo $address | cut -d '/' -f 2-)
+echo "[$0] exporting from [$address] with user [$user]"
+mongorestore -u $user -p $password \
+--host $host \
+--db $db \
+$@
+}
+
+# REDIS
+function redis_wrapper {
+url=$1
+credentials=$(echo $url | cut -d '@' -f 1 | cut -d '/' -f 3)
+user=$(echo $credentials | cut -d ':' -f 1)
+password=$(echo $credentials | cut -d ':' -f 2-)
+address=$(echo $url | cut -d '@' -f 2)
+host=$(echo $address | cut -d ':' -f 1)
+port=$(echo $address | cut -d ':' -f 2-)
+# echo "[$0] connecting to [$address] with user [$user]"
+redis-cli -h $host -p $port -a $password
+}

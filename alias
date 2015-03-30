@@ -1,0 +1,55 @@
+# Aliases
+# Fun
+alias metro='eog http://www.plan-metro-paris.fr/wp-content/uploads/2012/08/metro-paris.gif &'
+alias notifydate='notify-send "`date \"+%A %d %B, %T\"`"'
+alias chrome='chromium-browser --proxy-server="socks://127.0.0.1:9050" --incognito check.torproject.org'
+
+# DBS
+alias PSQL='PGPASSWORD=$POSTGRES_PASS psql -h $POSTGRES_HOST -U $POSTGRES_USER -p $POSTGRES_PORT $POSTGRES_DATABASE'
+alias watch_todays_votes='watch -n 1 "mongo $MONGO_URL -u $USER -p $PASS --eval \"db.votes.find({date:'\'$(date +%Y-%m-%d)\''}).count()\""'
+
+# EC2
+alias sandbox='ssh -i $HOME/.ssh/sandbox.pem ec2-user@$EC2_SANDBOX_URL'
+alias matching='ssh -i $HOME/.ssh/production.pem ubuntu@$EC2_MATCHING_URL'
+alias monitoring='ssh -i $HOME/.ssh/monitoring.pem ec2-user@$EC2_MONITORING_URL'
+
+# TOOLBOX
+alias csv="$1 | sed 's/;/, ,/g;s/;/, ,/g' | column -s, -t"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias pretty='python -m json.tool'
+#	# Secure file manipulation
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+#	# some more ls aliases
+alias ll='ls -ahlF'
+alias la='ls -A'
+alias l='ls -CF'
+#	# Add an "alert" alias for long running commands.  Use like so:
+#     sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# python
+alias venv='source venv/bin/activate'
+alias nosetests='nosetests --rednose --force-color'
+
+###########################################################################
+#                             Git specific                               ##
+###########################################################################
+alias gg='gitg --all'
+alias repo='echo "$GITHUB_USER/$(basename $(pwd))"'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gst='git status'
+alias gd='git diff'
+alias gf='git fetch'
+alias gc='git commit -v'
+alias gp='git push'
+alias gk='gitk --all 2>/dev/null'
+alias gx='gitx --all 2>/dev/null'
+alias gr='git remote -v'
+alias git-branch='git branch --no-color 2>/dev/null | grep "^*" | sed -e "s/^[* ] \(.*\)/\1/g"'
+alias git-tag='git describe --tags'
+
+
