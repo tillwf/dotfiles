@@ -4,7 +4,8 @@ dotfiles=" alias \
            ps1 \
            functions \
            bashrc \
-           vimrc"
+           vimrc \
+           tmux.conf"
 for file in $dotfiles;do
 [ -s "$HOME/.${file}" ] && unlink $HOME/.${file}
 cp $env_dir/$file $HOME/.${file}
