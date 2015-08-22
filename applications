@@ -1,3 +1,5 @@
+gstreamer1.0-libav
+gstreamer1.0-plugins-ugly
 tmux
 tree
 xclip
@@ -15,9 +17,6 @@ ipython-notebook
 python-pymongo
 libav-tools
 filezilla
-r-base-core
-gnome-gmail-notifier
-inkscape
 python-pip
 curl
 lynx
@@ -25,15 +24,6 @@ htop
 compizconfig-settings-manager
 compiz-plugins-extra
 tomboy
-python-psycopg2
-python-nltk
-python-sklearn
-python-numpy
-python-pandas
-python-yaml
-python-prettytable
-python-progressbar
-python-enchant
 python-virtualenv
 aspell-fr
 ipython
@@ -45,12 +35,10 @@ sublime-text-installer
 gnome-do
 owncloud-client
 fogger
-nuvolaplayer
 bleachbit
 git
 gitk
 git-flow
-gnome-do
 dia
 keepassx
 gparted

@@ -15,15 +15,15 @@ gsettings set com.canonical.indicator.session show-real-name-on-panel true
 
 # Add repositories
 # Sublime
-sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
+# sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
 
 # Opera
 
 # Oracle Java 1.7
-sudo add-apt-repository ppa:webupd8team/java 
+# sudo add-apt-repository ppa:webupd8team/java 
 
 # Nuvola
-sudo add-apt-repository ppa:nuvola-player-builders/stable
+# sudo add-apt-repository ppa:nuvola-player-builders/stable
 
 # Gerer batterie life
 sudo add-apt-repository ppa:linrunner/tlp
@@ -32,8 +32,8 @@ sudo add-apt-repository ppa:linrunner/tlp
 sudo add-apt-repository ppa:fossfreedom/rhythmbox
 
 # fogger
-echo "deb http://ppa.launchpad.net/loneowais/fogger/ubuntu saucy main" >> /etc/apt/source.list
-echo "deb-src http://ppa.launchpad.net/loneowais/fogger/ubuntu saucy main" >> /etc/apt/source.list
+# echo "deb http://ppa.launchpad.net/loneowais/fogger/ubuntu saucy main" >> /etc/apt/source.list
+# echo "deb-src http://ppa.launchpad.net/loneowais/fogger/ubuntu saucy main" >> /etc/apt/source.list
 
 # Remove alerts
 sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport 
