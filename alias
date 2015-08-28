@@ -37,7 +37,8 @@ alias nosetests='nosetests --rednose --force-color'
 ###########################################################################
 #                             Git specific                               ##
 ###########################################################################
-alias gg='gitg --all'
+alias gg='gitk --all'
+alias ggt='git log --graph --oneline'
 alias repo='echo "$GITHUB_USER/$(basename $(pwd))"'
 alias gb='git branch'
 alias gba='git branch -a'
@@ -51,5 +52,4 @@ alias gx='gitx --all 2>/dev/null'
 alias gr='git remote -v'
 alias git-branch='git branch --no-color 2>/dev/null | grep "^*" | sed -e "s/^[* ] \(.*\)/\1/g"'
 alias git-tag='git describe --tags'
-
 
