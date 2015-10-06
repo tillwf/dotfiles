@@ -1,0 +1,10 @@
+[alias]
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[user]
+  name = Till
+  email = till@monsieurdrive.com
+[core]
+  editor = vim
+[push]
+  default = simple

@@ -5,7 +5,8 @@ dotfiles=" alias \
            functions \
            bashrc \
            vimrc \
-           tmux.conf"
+           tmux.conf \
+           gitconfig"
 for file in $dotfiles;do
 [ -s "$HOME/.${file}" ] && unlink $HOME/.${file}
 cp $env_dir/$file $HOME/.${file}
