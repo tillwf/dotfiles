@@ -6,7 +6,8 @@ dotfiles=" alias \
            bashrc \
            vimrc \
            tmux.conf \
-           gitconfig"
+           gitconfig \
+           tigrc"
 for file in $dotfiles;do
 [ -s "$HOME/.${file}" ] && unlink $HOME/.${file}
 cp $env_dir/$file $HOME/.${file}
