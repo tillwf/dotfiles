@@ -29,7 +29,7 @@ gsettings set com.canonical.indicator.session show-real-name-on-panel true
 sudo add-apt-repository ppa:linrunner/tlp
 
 # Rhythmbox plugins
-sudo add-apt-repository ppa:fossfreedom/rhythmbox
+# sudo add-apt-repository ppa:fossfreedom/rhythmbox
 
 # fogger
 # echo "deb http://ppa.launchpad.net/loneowais/fogger/ubuntu saucy main" >> /etc/apt/source.list
@@ -40,3 +40,9 @@ sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
 
 # Heroku
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# Vim Pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+
