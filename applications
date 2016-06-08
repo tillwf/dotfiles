@@ -6,6 +6,7 @@ compiz-plugins-extra
 curl
 dia
 filezilla
+fswebcam
 git
 git-flow
 gitg
@@ -19,6 +20,7 @@ imagemagick
 indicator-multiload
 ipython
 ipython-notebook
+irssi
 jq
 keepassx
 libav-tools
