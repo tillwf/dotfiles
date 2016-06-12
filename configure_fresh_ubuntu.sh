@@ -2,7 +2,7 @@
 gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 
 # Disable guest account
-echo allow-guest=false | sudo tee -a /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+# echo allow-guest=false | sudo tee -a /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 
 # Disable overlay scrollbars
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
@@ -11,7 +11,7 @@ gsettings set com.canonical.desktop.interface scrollbar-mode normal
 # gsettings reset com.canonical.desktop.interface scrollbar-mode
 
 # display name in the menu
-gsettings set com.canonical.indicator.session show-real-name-on-panel true
+# gsettings set com.canonical.indicator.session show-real-name-on-panel true
 
 # Add repositories
 # Sublime
@@ -36,7 +36,7 @@ sudo add-apt-repository ppa:linrunner/tlp
 # echo "deb-src http://ppa.launchpad.net/loneowais/fogger/ubuntu saucy main" >> /etc/apt/source.list
 
 # Remove alerts
-sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport 
+# sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport 
 
 # Heroku
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
