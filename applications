@@ -12,6 +12,7 @@ git-flow
 gitg
 gitk
 gnome-shell
+gnome-shell-extension*
 gnome-tweak-tool
 gparted
 gstreamer1.0-libav
