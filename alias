@@ -37,6 +37,9 @@ alias nosetests='nosetests --rednose --force-color'
 # Network
 alias local_ips='nmap -sP 192.168.0.0/24'
 
+# Wifi issue
+alias lebauce='sudo iwconfig wlp3s0 txpower 1'
+
 ###########################################################################
 #                             Git specific                               ##
 ###########################################################################
