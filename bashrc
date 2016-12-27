@@ -115,17 +115,3 @@ fi
 # Functions
 . $HOME/.functions
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM
-
-export PIG_INSTALL=/opt/pig/
-export PIG_CLASSPATH=/opt/hadoop/conf/
-
-# Sets the Mail Environment Variable
-MAIL=/var/spool/mail/till && export MAIL
-
-
-
