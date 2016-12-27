@@ -45,4 +45,18 @@ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
+# Setup epiphany for  multiple gmail app
+for i in R S T
+do
+  mkdir $HOME/.gmail$i
+  echo "[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Gmail$i
+Comment=Gmail$i
+Exec=epiphany --private-instance --profile=$HOME/.gmail$i
+Icon=application.png
+Terminal=false" > $HOME/gmail$i.desktop
+  sudo mv $HOME/gmail$i.desktop /usr/share/applications/gmail$i.desktop
+done
 
