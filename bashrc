@@ -121,7 +121,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM
 
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
 export PIG_INSTALL=/opt/pig/
 export PIG_CLASSPATH=/opt/hadoop/conf/
 
