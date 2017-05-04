@@ -26,7 +26,7 @@ gsettings set com.canonical.desktop.interface scrollbar-mode normal
 # sudo add-apt-repository ppa:nuvola-player-builders/stable
 
 # Gerer batterie life
-sudo add-apt-repository ppa:linrunner/tlp
+# sudo add-apt-repository ppa:linrunner/tlp
 
 # Rhythmbox plugins
 # sudo add-apt-repository ppa:fossfreedom/rhythmbox
@@ -39,7 +39,13 @@ sudo add-apt-repository ppa:linrunner/tlp
 # sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport 
 
 # Heroku
-wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+# wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# Scudcloud
+sudo apt-add-repository -y ppa:rael-gc/scudcloud
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+sudo apt-get update
+sudo apt-get install scudcloud
 
 # Vim Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
