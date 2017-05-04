@@ -118,7 +118,7 @@ _mk_prompt() {
     gitbranch
     if [[ ! -z "$GITBRANCH" ]]; then
         # coloring of the branch name depending of the status
-        if [[ ${git_status} =~ "working directory clean" ]]; then
+        if [[ ${git_status} =~ "working tree clean" ]]; then
         state="${GREEN}"
         elif [[ ${git_status} =~ "nothing added to commit but untracked files present" ]]; then
         state="${BLUE}"
