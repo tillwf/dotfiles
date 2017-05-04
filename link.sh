@@ -13,5 +13,5 @@ for file in $dotfiles;do
 cp $env_dir/$file $HOME/.${file}
 done
 
-cp "sublime/Preferences.sublime-settings" ~/.config/sublime-text-3/Packages/User/.
-cp "sublime/Default (Linux).sublime-keymap" ~/.config/sublime-text-3/Packages/User/.
+# cp "sublime/Preferences.sublime-settings" ~/.config/sublime-text-3/Packages/User/.
+# cp "sublime/Default (Linux).sublime-keymap" ~/.config/sublime-text-3/Packages/User/.
