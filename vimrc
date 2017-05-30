@@ -33,6 +33,8 @@ set incsearch " do incremental searching
 set laststatus=2 " Always display the status line
 set autowrite " Automatically :write before running commands
 
+augroup vimrcEx
+autocmd!
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it for commit messages, when the position is invalid, or when
 	" inside an event handler (happens when dropping a file on gvim).
@@ -53,6 +55,13 @@ set autowrite " Automatically :write before running commands
 	" Allow stylesheets to autocomplete hyphenated words
 	autocmd FileType css,scss,sass setlocal iskeyword+=-
 augroup END
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
 
 " Softtabs, 2 spaces
 set tabstop=2
