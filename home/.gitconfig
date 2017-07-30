@@ -5,3 +5,6 @@
   editor = vim
 [push]
   default = current
+[user]
+  name = tillmd
+  email = till@till.com

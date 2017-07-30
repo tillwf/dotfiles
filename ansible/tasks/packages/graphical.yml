@@ -1,0 +1,22 @@
+---
+- name: Install graphical libraries using APT
+  apt: name={{ item }} state=latest
+  become: yes
+  become_method: sudo
+  with_items:
+    - compizconfig-settings-manager
+    - compiz-plugins-extra
+    - fswebcam
+    - gnome-shell
+    - gnome-shell-extension*
+    - gnome-tweak-tool
+    - gstreamer1.0-libav
+    - gstreamer1.0-plugins-ugly
+    - imagemagick
+    - indicator-multiload
+    - numix-gtk-theme
+    - numix-icon-theme
+    - papirus-icon-theme
+    - scrot
+    - streamer
+    - vlc

@@ -41,18 +41,6 @@ gsettings set com.canonical.desktop.interface scrollbar-mode normal
 # Heroku
 # wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
-# Sublime Text
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get update
-sudo apt-get install sublime-text
-
-# Scudcloud
-sudo apt-add-repository -y ppa:rael-gc/scudcloud
-echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-sudo apt-get update
-sudo apt-get install scudcloud
-
 # Vim Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

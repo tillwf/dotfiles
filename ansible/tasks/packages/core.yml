@@ -1,0 +1,35 @@
+---
+- name: Install core libraries using APT
+  apt: name={{ item }} state=latest
+  become: yes
+  become_method: sudo
+  with_items:
+    - ack
+    - aspell-fr
+    - bleachbit
+    - dia
+    - git
+    - git-flow
+    - gitg
+    - gitk
+    - gparted
+    - htop
+    - jq
+    - keepassx
+    - libav-tools
+    - mongodb
+    - ncdu
+    - postgresql
+    - preload
+    - python-pip
+    - python-virtualenv
+    - rar
+    - terminator
+    - tig
+    - tlp
+    - tlp-rdw
+    - tmux
+    - tomboy
+    - tree
+    - vim
+    - xclip

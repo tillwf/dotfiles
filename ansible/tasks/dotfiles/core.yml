@@ -1,0 +1,14 @@
+- name: Symlink my dotfiles
+  file: src=~/dotfiles/home/{{ item }}
+        dest=~/{{ item }}
+        state=link
+        force=yes
+  with_items:
+    - .alias
+    - .bashrc
+    - .functions
+    - .gitconfig
+    - .ps1
+    - .tigrc
+    - .tmux.conf
+    - .vimrc

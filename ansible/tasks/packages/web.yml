@@ -1,0 +1,21 @@
+---
+- name: Install libraries using APT
+  apt: name={{ item }} state=latest
+  become: yes
+  become_method: sudo
+  with_items:
+    - awscli
+    - chromium-browser
+    - curl
+    - epiphany-browser
+    - filezilla
+    - irssi
+    - lynx
+    - mailnag
+    - openssh-client
+    - openssh-server
+    - owncloud-client
+    - privoxy
+    - scudcloud
+    - sshfs
+    - tor
