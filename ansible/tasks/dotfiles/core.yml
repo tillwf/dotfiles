@@ -1,0 +1,23 @@
+- name: Symlink my dotfiles
+  file: src=~/dotfiles/home/{{ item }}
+        dest=~/{{ item }}
+        state=link
+        force=yes
+  with_items:
+    - .alias
+    - .bashrc
+    - .functions
+    - .gitconfig
+    - .ps1
+    - .tigrc
+    - .tmux.conf
+    - .vimrc
+
+- name: Symlink sublime files
+  file: src=~/dotfiles/config/sublime/{{ item }}
+        dest=~/.config/sublime-text-3/Packages/User/{{ item }}
+        state=link
+        force=yes
+  with_items:
+    - Preferences.sublime-settings
+    - Default (Linux).sublime-keymap

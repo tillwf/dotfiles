@@ -1,0 +1,12 @@
+---
+  - name: Create gmail apps
+    command: '/home/till/dotfiles/scripts/create_gmail_apps.sh'
+
+  - name: Init vim pathogen
+    command: '/home/till/dotfiles/scripts/init_vim_pathogen.sh'
+
+  - name: Disable web search
+    command: '/home/till/dotfiles/scripts/disable_web_search.sh'
+
+  - name: Setup cron
+    command: '/home/till/dotfiles/scripts/setup_cron.sh'

@@ -1,0 +1,20 @@
+- hosts: localhost
+  vars:
+      download_url: http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz
+      download_folder: /opt
+      java_name: "{{download_folder}}/jdk1.8.0_144"
+      java_archive: "{{download_folder}}/jdk-8u144-linux-x64.tar.gz"
+  tasks:
+    # add repositories:
+    # - include: tasks/repositories/main.yml
+    # install packages
+    - include: tasks/packages/core.yml
+    - include: tasks/packages/graphical.yml
+    # - include: tasks/packages/java.yml
+    - include: tasks/packages/web.yml
+    # Install snap packages
+    - include: tasks/packages/snap.yml
+    # symlink dotfiles
+    - include: tasks/dotfiles/core.yml
+    # launch scripts
+    - include: tasks/scripts/main.yml
