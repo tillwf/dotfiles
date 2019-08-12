@@ -16,6 +16,5 @@
     - openssh-server
     - owncloud-client
     - privoxy
-    - scudcloud
     - sshfs
     - tor

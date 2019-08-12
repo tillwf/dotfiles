@@ -1,10 +1,10 @@
-- apt_repository:
-    repo: 'ppa:papirus/papirus'
-
-- apt_repository:
-    repo: 'ppa:rael-gc/scudcloud'
-
-- name: Update packages
-  become: yes
-  become_method: sudo
-  apt: upgrade=dist update_cache=yes
+# - apt_repository:
+#     repo: 'ppa:papirus/papirus'
+# 
+# - apt_repository:
+#     repo: 'ppa:rael-gc/scudcloud'
+# 
+# - name: Update packages
+#   become: yes
+#   become_method: sudo
+#   apt: upgrade=dist update_cache=yes

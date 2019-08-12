@@ -6,6 +6,7 @@
   with_items:
     - compizconfig-settings-manager
     - compiz-plugins-extra
+    - flameshot
     - fswebcam
     - gnome-shell
     - gnome-shell-extension*
