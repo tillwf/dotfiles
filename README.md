@@ -1,4 +1,4 @@
-###Init
+### Init
 
 #### Install Git
 
@@ -14,19 +14,11 @@ git clone http://github.com/tillmd/dotfiles
 
 ### Applications
 
-#### From file
-
-```bash
-for i in `cat applications`; do sudo apt-get install -y $i ; done
-```
-
 #### Using Ansible
 
-Install Ansible:
+Install Ansible >= 2.8:
 
 ```bash
-sudo apt-add-repository ppa:ansible/ansible
-sudo apt-get update
 sudo apt-get install ansible
 ```
 
