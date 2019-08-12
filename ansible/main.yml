@@ -12,8 +12,9 @@
     - include: tasks/packages/core.yml
     - include: tasks/packages/graphical.yml
     # - include: tasks/packages/java.yml
-    # - include: tasks/packages/sublime.yml
     - include: tasks/packages/web.yml
+    # Install snap packages
+    - include: tasks/packages/snap.yml
     # symlink dotfiles
     - include: tasks/dotfiles/core.yml
     # launch scripts

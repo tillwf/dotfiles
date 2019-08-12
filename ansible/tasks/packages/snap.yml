@@ -1,0 +1,9 @@
+- name: Install spotify
+  snap:
+    name:
+      - spotify
+
+- name: Install spotify
+  snap:
+    name:
+      - sublime-text
