@@ -106,8 +106,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#EC2_URL
-. $HOME/.ec2
 # PS1
 . $HOME/.ps1
 # Aliases
