@@ -4,7 +4,6 @@
   become: yes
   become_method: sudo
   with_items:
-    - awscli
     - chromium-browser
     - curl
     - epiphany-browser
@@ -14,7 +13,6 @@
     - mailnag
     - openssh-client
     - openssh-server
-    - owncloud-client
     - privoxy
     - sshfs
     - tor
