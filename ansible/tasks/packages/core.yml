@@ -13,6 +13,7 @@
     - htop
     - jq
     - ncdu
+    - duf
     - preload
     - rar
     - terminator

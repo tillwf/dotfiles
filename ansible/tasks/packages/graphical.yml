@@ -8,7 +8,7 @@
     - fswebcam
     - gnome-shell
     - gnome-shell-extension*
-    - gnome-tweak-tool
+    - gnome-tweaks
     - imagemagick
     - indicator-multiload
     - numix-gtk-theme

@@ -1,8 +1,26 @@
 - name: Install spotify
+  become: yes
+  become_method: sudo
   snap:
     name: spotify
 
 - name: Install sublime
+  become: yes
+  become_method: sudo
   snap:
     name: sublime-text
+    classic: yes
+
+- name: Install dust
+  become: yes
+  become_method: sudo
+  snap:
+    name: dust
+    classic: yes
+
+- name: Install btop
+  become: yes
+  become_method: sudo
+  snap:
+    name: btop
     classic: yes
