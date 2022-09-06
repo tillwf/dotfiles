@@ -6,9 +6,6 @@ set nocompatible
 " autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
 
-execute pathogen#infect()
-syntax on
-
 set laststatus=2
 """"""""""""""""""""""""""""""
 " airline

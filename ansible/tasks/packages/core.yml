@@ -12,12 +12,9 @@
     - gparted
     - htop
     - jq
-    - keepassx
     - ncdu
-    - postgresql
+    - duf
     - preload
-    - python-pip
-    - python-virtualenv
     - rar
     - terminator
     - tig

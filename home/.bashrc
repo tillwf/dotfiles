@@ -106,8 +106,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#EC2_URL
-. $HOME/.ec2
 # PS1
 . $HOME/.ps1
 # Aliases
@@ -115,3 +113,6 @@ fi
 # Functions
 . $HOME/.functions
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv virtualenv-init -)"

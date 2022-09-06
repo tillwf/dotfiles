@@ -104,6 +104,19 @@ redis-cli -h $host -p $port -a $password
 }
 
 # UTILS
+function reduce_video() {
+  file="$1"
+  full_basename=${file%.*}
+  SUFFIX="_small"
+  small_file="$full_basename"$SUFFIX.MOV
+  if [[ "$file" == *"$SUFFIX"* ]];then
+    echo "$file already small"
+  else
+    echo "ffmpeg $file -c:a copy $small_file"
+    ffmpeg -n -i "$file" -c:a copy "$small_file"
+  fi
+}
+
 
 function extract () {
     if [ -f $1 ] ; then
