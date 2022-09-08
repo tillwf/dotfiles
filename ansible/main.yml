@@ -14,6 +14,8 @@
     - include: tasks/packages/web.yml
     # Install snap packages
     - include: tasks/packages/snap.yml
+    # Install pyenv requirements
+    - include: tasks/packages/pyenv.yml
     # symlink dotfiles
     - include: tasks/dotfiles/core.yml
     # launch scripts
