@@ -138,3 +138,14 @@ function extract () {
          echo "'$1' is not a valid file"
      fi
 }
+
+function moi () {
+    for i in *.jpeg
+    do
+        dossier=`ls -l --time-style=+%Y-%m-%d "$i" | cut -d' ' -f6`
+        echo $dossier
+        mkdir -p "$dossier"
+        mv "$i" "$dossier"
+    done
+}
+
