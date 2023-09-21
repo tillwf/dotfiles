@@ -24,3 +24,10 @@
   snap:
     name: btop
     classic: yes
+
+- name: Install slack
+  become: yes
+  become_method: sudo
+  snap:
+    name: slack
+    classic: yes
