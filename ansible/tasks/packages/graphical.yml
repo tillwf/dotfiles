@@ -14,7 +14,9 @@
     - numix-gtk-theme
     - numix-icon-theme
     - papirus-icon-theme
+    - peek
     - scrot
     - streamer
     - ubuntu-gnome-desktop
     - vlc
+    - obs-studio
