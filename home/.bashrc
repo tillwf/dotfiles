@@ -116,3 +116,5 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+alias videos='find . -iregex ".*\.\(mp4\|flv\|MOV\|mkv\|webm\|avi\|mpg\|mpeg\)" -type f -exec vlc --one-instance --playlist-enqueue --playlist-autostart --fullscreen -Z "{}" +'
+alias videoss='find . -iregex ".*\.\(mp4\|flv\|MOV\|mkv\|webm\|avi\|mpg\|mpeg\)" -type f -exec  mpv --fs --loop-file=inf --shuffle --loop-playlist=inf "{}" +'
