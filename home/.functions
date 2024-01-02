@@ -149,3 +149,47 @@ function moi () {
     done
 }
 
+function waouh () {
+    # Function to shuffle an array
+    shuffle() {
+        local i tmp size max rand
+        size=${#files[@]}
+        max=$(( 32768 / size * size ))
+
+        for ((i=size-1; i>0; i--)); do
+            while (( (rand=RANDOM) >= max )); do :; done
+            rand=$(( rand % (i+1) ))
+            tmp=${files[i]} files[i]=${files[rand]} files[rand]=$tmp
+        done
+    }
+
+    declare -A files_by_day
+    declare -a all_files
+    declare -a all_files_with_dates
+
+    # Find files and process them
+    while IFS= read -r -d '' file; do
+        # Get access time and convert it to a human-readable format
+        atime=$(stat -c %x "$file" | cut -d ' ' -f1)
+
+        # Append file to the array of its access day
+        files_by_day[$atime]+="$file"$'\n'
+    done < <(find . -iregex ".*\.\(mp4\|flv\|mov\|mkv\|webm\|avi\|mpg\|mpeg\)" -type f -print0)
+
+    # Shuffle files within each day and add to all_files array
+    for day in $(printf "%s\n" "${!files_by_day[@]}" | sort); do
+        IFS=$'\n' read -r -d '' -a files <<< "${files_by_day[$day]}"
+        shuffle
+        for file in "${files[@]}"; do
+            all_files+=("$file")
+            all_files_with_dates+=("$(stat -c %x "$file") $file")
+        done
+    done
+
+    # Print the list of all files with their last access times
+    printf 'Files to be played with last access times:\n'
+    printf '%s\n' "${all_files_with_dates[@]}"
+
+    # Play all shuffled files with mpv
+    printf '%s\0' "${all_files[@]}" | xargs -0 mpv --fs --loop-file=inf --loop-playlist=inf
+}
