@@ -36,7 +36,12 @@ host="$(echo ${url/$credentials@/} | cut -d/ -f1)"
 db="$(echo $url | grep / | cut -d/ -f2-)"
 
 shift
-mongo $host/$db -u $user -p $password $@
+echo $host
+echo $db
+echo $user
+echo $password
+
+mongosh $host/$db -u $user -p $password $@
 }
 
 function mongoexport_wrapper {
@@ -147,6 +152,23 @@ function moi () {
         mkdir -p "$dossier"
         mv "$i" "$dossier"
     done
+}
+
+organize_photos() {
+    # Create a temporary directory
+    mkdir tmp
+
+    # Move corresponding .CR2 files to tmp for every .JPG file
+    for i in *.JPG; do
+        mv "$(basename "$i" .JPG).CR2" tmp/ 2>/dev/null
+    done
+
+    # Remove all .CR2 files in the current directory
+    rm -rf *.CR2
+
+    # Move files back from tmp and remove the tmp directory
+    mv tmp/* .
+    rmdir tmp
 }
 
 function waouh () {
