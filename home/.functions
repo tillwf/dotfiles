@@ -171,6 +171,22 @@ organize_photos() {
     rmdir tmp
 }
 
+dji () {
+  for file in DJI_*.*; do
+      # Extract the date portion of the filename
+      date=$(echo "$file" | grep -oP '(?<=DJI_)\d{8}')
+      echo $date
+      # Format the date as YYYY-MM-DD
+      formatted_date=$(echo "$date" | sed 's/\(....\)\(..\)\(..\)/\1-\2-\3/')
+
+      # Create the directory if it doesn't exist
+      mkdir -p "$formatted_date [DJI]"
+
+      # Move the file to the directory
+      mv "$file" "$formatted_date [DJI]/"
+  done
+}
+
 function waouh () {
     # Function to shuffle an array
     shuffle() {
