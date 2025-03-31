@@ -1,11 +1,11 @@
 # Move minimize to the right
-gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+# gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 
 # Disable guest account
 # echo allow-guest=false | sudo tee -a /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 
 # Disable overlay scrollbars
-gsettings set com.canonical.desktop.interface scrollbar-mode normal
+# gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
 # Re-enable overlay scrollbars
 # gsettings reset com.canonical.desktop.interface scrollbar-mode

@@ -1,6 +1,6 @@
 ---
-  - name: Create gmail apps
-    command: '/home/$USER/dotfiles/scripts/create_gmail_apps.sh'
+  # - name: Create gmail apps
+  #   command: '/home/$USER/dotfiles/scripts/create_gmail_apps.sh'
 
   - name: Create pyenv
     command: '/home/$USER/dotfiles/scripts/install_pyenv.sh'
