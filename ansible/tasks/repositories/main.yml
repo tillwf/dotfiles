@@ -9,5 +9,5 @@
 #   become_method: sudo
 #   apt: upgrade=dist update_cache=yes
 
-- apt_repository:
-    repo: 'ppa:obsproject/obs-studio'
+# - apt_repository:
+#     repo: 'ppa:obsproject/obs-studio'
