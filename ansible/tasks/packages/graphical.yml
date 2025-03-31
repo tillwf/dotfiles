@@ -7,10 +7,13 @@
     - flameshot
     - fswebcam
     - gnome-shell
-    - gnome-shell-extension*
+    - gnome-shell-extensions
+    - gnome-shell-extension-manager
+    - gnome-shell-extension-prefs
     - gnome-tweaks
     - imagemagick
     - indicator-multiload
+    - mpv
     - numix-gtk-theme
     - numix-icon-theme
     - papirus-icon-theme
