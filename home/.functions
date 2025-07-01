@@ -231,3 +231,13 @@ function waouh () {
     # Play all shuffled files with mpv
     printf '%s\0' "${all_files[@]}" | xargs -0 mpv --fs --loop-file=inf --loop-playlist=inf
 }
+
+function git_large_repos () {
+    git config feature.manyFiles true;
+    git update-index --index-version 4;
+    git config core.fsmonitor true;
+    git config core.untrackedcache true;
+    git config core.commitgraph true;
+    git config fetch.writeCommitGraph true;
+    git commit-graph write --reachable
+}
