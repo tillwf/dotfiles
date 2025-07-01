@@ -23,6 +23,14 @@ else
     export PS1="${BLUE_SOLARIZE}[\$(date +%H:%M:%S)]${GREEN}[local] ${BLUE_SOLARIZE}\W${PS1_reset} ";
 fi
 
+# Function to get the repository name
+get_repo_name() {
+    local repo_path=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [[ -n "$repo_path" ]]; then
+        echo "$(basename "$repo_path")"
+    fi
+}
+
 # 100% pure Bash (no forking) function to determine the name of the current git branch
 gitbranch() {
     export GITBRANCH=""
@@ -138,6 +146,14 @@ _mk_prompt() {
 
 
     PS1="$_MK_PROMPT_ORIG_PS1"
+    
+    # Get repo name and replace the directory part
+    local repo_name=$(get_repo_name)
+    if [[ -n "$repo_name" ]]; then
+        # Replace the \W part with blue repo name + yellow current dir
+        PS1="${PS1//\\W/${BLUE}$repo_name${PS1_reset}-${YELLOW}\\W${PS1_reset}}"
+    fi
+    
     if [[ ! -z "$prefix" ]]; then
         PS1="$PS1[${prefix[@]}] "
     fi
