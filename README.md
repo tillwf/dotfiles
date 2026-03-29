@@ -12,15 +12,30 @@ sudo apt-get install git
 git clone http://github.com/tillmd/dotfiles
 ```
 
-### Applications
+### Install
 
-#### Using Ansible
-
-Install Ansible >= 2.8:
+#### Prerequisites
 
 ```bash
 sudo apt-get install ansible
 ```
+
+#### Quick setup
+
+```bash
+make install
+```
+
+#### Available targets
+
+| Command        | Description                              |
+|----------------|------------------------------------------|
+| `make install` | Run the full Ansible playbook            |
+| `make check`   | Dry-run the playbook (no changes made)   |
+| `make lint`    | Run shellcheck on all shell scripts      |
+| `make help`    | Show available targets                   |
+
+#### Manual run
 
 ```bash
 ansible-playbook ansible/main.yml

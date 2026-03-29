@@ -1,3 +1,24 @@
+- name: Backup existing dotfiles before symlinking
+  shell: |
+    dest="$HOME/{{ item }}"
+    backup_dir="$HOME/.dotfiles-backup"
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+      mkdir -p "$backup_dir"
+      cp "$dest" "$backup_dir/{{ item }}.$(date +%Y%m%d%H%M%S)"
+    fi
+  args:
+    executable: /bin/bash
+  with_items:
+    - .alias
+    - .bashrc
+    - .functions
+    - .gitconfig
+    - .ps1
+    - .tigrc
+    - .tmux.conf
+    - .vimrc
+  changed_when: false
+
 - name: Symlink my dotfiles
   file: src=~/dotfiles/home/{{ item }}
         dest=~/{{ item }}
@@ -12,6 +33,47 @@
     - .tigrc
     - .tmux.conf
     - .vimrc
+
+- name: Ensure ~/.local/bin exists
+  file: path=~/.local/bin
+        state=directory
+
+- name: Backup existing scripts before symlinking
+  shell: |
+    dest="$HOME/.local/bin/{{ item | regex_replace('\.sh$', '') }}"
+    backup_dir="$HOME/.dotfiles-backup"
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+      mkdir -p "$backup_dir"
+      cp "$dest" "$backup_dir/{{ item }}.$(date +%Y%m%d%H%M%S)"
+    fi
+  args:
+    executable: /bin/bash
+  with_items:
+    - picture_viewer.sh
+  changed_when: false
+
+- name: Symlink scripts to ~/.local/bin
+  file: src=~/dotfiles/scripts/{{ item }}
+        dest=~/.local/bin/{{ item | regex_replace('\.sh$', '') }}
+        state=link
+        force=yes
+  with_items:
+    - picture_viewer.sh
+
+- name: Backup existing sublime files before symlinking
+  shell: |
+    dest="$HOME/.config/sublime-text-3/Packages/User/{{ item }}"
+    backup_dir="$HOME/.dotfiles-backup"
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+      mkdir -p "$backup_dir"
+      cp "$dest" "$backup_dir/{{ item }}.$(date +%Y%m%d%H%M%S)"
+    fi
+  args:
+    executable: /bin/bash
+  with_items:
+    - Preferences.sublime-settings
+    - Default (Linux).sublime-keymap
+  changed_when: false
 
 - name: Symlink sublime files
   file: src=~/dotfiles/config/sublime/{{ item }}

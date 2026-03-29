@@ -1,3 +1,4 @@
-# Vim Pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

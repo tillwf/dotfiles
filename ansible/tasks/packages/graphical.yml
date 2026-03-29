@@ -4,6 +4,7 @@
   become: yes
   become_method: sudo
   with_items:
+    - feh
     - flameshot
     - fswebcam
     - gnome-shell
@@ -12,7 +13,6 @@
     - gnome-shell-extension-prefs
     - gnome-tweaks
     - imagemagick
-    - indicator-multiload
     - mpv
     - numix-gtk-theme
     - numix-icon-theme

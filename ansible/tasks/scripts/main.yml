@@ -1,15 +1,18 @@
 ---
-  # - name: Create gmail apps
-  #   command: '/home/$USER/dotfiles/scripts/create_gmail_apps.sh'
-
   - name: Create pyenv
-    command: '/home/$USER/dotfiles/scripts/install_pyenv.sh'
+    command: '{{ ansible_env.HOME }}/dotfiles/scripts/install_pyenv.sh'
+    args:
+      creates: '{{ ansible_env.HOME }}/.pyenv/bin/pyenv'
 
   - name: Init vim pathogen
-    command: '/home/$USER/dotfiles/scripts/init_vim_pathogen.sh'
+    command: '{{ ansible_env.HOME }}/dotfiles/scripts/init_vim_pathogen.sh'
+    args:
+      creates: '{{ ansible_env.HOME }}/.vim/autoload/pathogen.vim'
 
   - name: Disable web search
-    command: '/home/$USER/dotfiles/scripts/disable_web_search.sh'
+    command: '{{ ansible_env.HOME }}/dotfiles/scripts/disable_web_search.sh'
+    changed_when: false
 
   - name: Setup cron
-    command: '/home/$USER/dotfiles/scripts/setup_cron.sh'
+    command: '{{ ansible_env.HOME }}/dotfiles/scripts/setup_cron.sh'
+    changed_when: false
