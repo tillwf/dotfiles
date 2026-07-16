@@ -1,6 +1,6 @@
 # Aliases
 # Fun
-alias metro='eog http://www.plan-metro-paris.fr/wp-content/uploads/2012/08/metro-paris.gif &'
+alias metro='eog https://www.ratp.fr/sites/default/files/plans-lignes/Plans-essentiels/Plan-Metro.1717082254.png &'
 alias notifydate='notify-send "`date \"+%A %d %B, %T\"`"'
 alias chrome='chromium-browser --proxy-server="socks://127.0.0.1:9050" --incognito check.torproject.org'
 
