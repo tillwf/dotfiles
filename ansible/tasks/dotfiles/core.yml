@@ -83,3 +83,29 @@
   with_items:
     - Preferences.sublime-settings
     - Default (Linux).sublime-keymap
+
+- name: Ensure ~/.config/herdr exists
+  file: path=~/.config/herdr
+        state=directory
+
+- name: Backup existing herdr config before symlinking
+  shell: |
+    dest="$HOME/.config/herdr/{{ item }}"
+    backup_dir="$HOME/.dotfiles-backup"
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+      mkdir -p "$backup_dir"
+      cp "$dest" "$backup_dir/herdr-{{ item }}.$(date +%Y%m%d%H%M%S)"
+    fi
+  args:
+    executable: /bin/bash
+  with_items:
+    - config.toml
+  changed_when: false
+
+- name: Symlink herdr config
+  file: src=~/dotfiles/config/herdr/{{ item }}
+        dest=~/.config/herdr/{{ item }}
+        state=link
+        force=yes
+  with_items:
+    - config.toml
